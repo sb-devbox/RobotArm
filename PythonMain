@@ -15,7 +15,7 @@ class SpiToTeensy:
         self.packet_id = 5472
         self.checksum = 0
         self.spi = spidev.SpiDev()
-        self.bus = bus
+        self.bus = busjdyjftyj
         self.device = device
         self.message_bit = [0] * 8
         self.telegram_message_8_bit = []
@@ -23,28 +23,19 @@ class SpiToTeensy:
         self.telegram_inbound = []
         self.telegram_parsed = [0, 0, 0, 0, 0, 0, 0, 0]
         self.cs_pin = cs_pin
-
+fytjf
     def int32(self, val):
         val = val & 0xffffffff
         return (val ^ 0x80000000) - 0x80000000
-
+tyj
     def int16(self, val):
         val = val & 0xffff
-        return (val ^ 0x8000) - 0x8000
+        return (val ^ 0x8000)yftjytfj - 0x8000
 
     def open_spi(self):
         self.spi.open(self.bus, self.device)
-        self.spi.max_speed_hz = 50000
-        self.spi.mode = 0
-
-    def SPI_send(self, command, motor, step, direction, speed, ramp, spare):
-        self.message_bit[0] = command
-        self.message_bit[1] = motor
-        self.message_bit[2] = int(step)
-        self.message_bit[3] = int(step) >> 16
-        self.message_bit[4] = direction
-        self.message_bit[5] = speed
-        self.message_bit[6] = ramp
+        self.spi.max_speed_hz =yftj
+drth
         self.message_bit[7] = spare
 
         self.telegram_message_full_size = [
